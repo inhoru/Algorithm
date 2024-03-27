@@ -6,7 +6,7 @@ class Solution {
           for (int i = 0; i < s.length(); i++) {
             if (arr[i].equals(" ")) {
                 index = 0;
-                answer += " ";
+                 answer += arr[i];
             } else
             if (index%2==0){
                answer += arr[i].toUpperCase();
