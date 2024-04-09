@@ -3,65 +3,40 @@ class Solution {
         int[] answer = new int[2];
         int minCount = 0;
         int maxCount = 0;
-          for (int i = 0; i < lottos.length; i++) {
-            for (int j = 0; j < win_nums.length; j++) {
-                if (lottos[i] == win_nums[j]) {
+            for (int lotto : lottos) {
+            if (lotto == 0) {
+                maxCount++;
+            }
+            for (int winNum : win_nums) {
+                if (lotto == winNum) {
                     minCount++;
                 }
             }
-            if (lottos[i] == 0) {
-                maxCount++;
-            }
         }
-        int totalMax = maxCount + minCount;
-        int totalMin = minCount;
+        answer[0] = prize(maxCount + minCount);
+        answer[1] = prize(minCount);
 
-        switch (totalMax) {
-            case 6:
-                answer[0] = 1;
-                break;
-            case 5:
-                answer[0] = 2;
-                break;
-            case 4:
-                answer[0] = 3;
-                break;
-            case 3:
-                answer[0] = 4;
-                break;
-            case 2:
-                answer[0] = 5;
-                break;
-            case 1:
-                answer[0] = 6;
-                break;
-            case 0:
-                answer[0] = 6;
-                break;
-        }
-        switch (totalMin) {
-            case 6:
-                answer[1] = 1;
-                break;
-            case 5:
-                answer[1] = 2;
-                break;
-            case 4:
-                answer[1] = 3;
-                break;
-            case 3:
-                answer[1] = 4;
-                break;
-            case 2:
-                answer[1] = 5;
-                break;
-            case 1:
-                answer[1] = 6;
-                break;
-            case 0:
-                answer[1] = 6;
-                break;
-        }
         return answer;
+        
+    }
+
+    public static int prize(int num) {
+        switch (num) {
+            case 0:
+                return 6;
+            case 1:
+                return 6;
+            case 2:
+                return 5;
+            case 3:
+                return 4;
+            case 4:
+                return 3;
+            case 5:
+                return 2;
+            case 6:
+                return 1;
+        }
+        return num;
     }
 }
