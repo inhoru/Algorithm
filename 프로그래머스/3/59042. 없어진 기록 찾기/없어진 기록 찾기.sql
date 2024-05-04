@@ -1,0 +1,1 @@
+SELECT animal_id, a.name from animal_outs a  left join animal_ins using(animal_id) where intake_condition is null;
